@@ -2,8 +2,6 @@
 ###### projet développer dans le cadre de mon bénévolat pour la croix-rouge française au pôle jeunesse de Savoie
 </br>
 </br>
-</br>
-</br>
 
 > inclusion sociale par le numérique, intergénérationnel
 > _
@@ -11,13 +9,9 @@
 
 </br>
 </br>
-</br>
-</br>
 
 ### concept
 jeu en ligne (desktop uniquement pour le moment) qui permet de découvrir les fonctionnalités de google maps, sous la forme de devinettes, et aussi de fournir un document pdf à télécharger et/ou imprimer récapitulant les notions découvertes lors de la partie.
-</br>
-</br>
 </br>
 </br>
 
@@ -33,16 +27,12 @@ une fois ces première notions validées, un second temps est consacré aux fonc
 une fois le jeu fini, le joueur est invité à télécharger le document récapitulatif, et peut se rendre sur le site officiel de google maps pour continuer de s’amuser.
 </br>
 </br>
-</br>
-</br>
 
 ### technologies utilisées
 </br>
 
 - google maps developper API
 
-</br>
-</br>
 </br>
 </br>
 
