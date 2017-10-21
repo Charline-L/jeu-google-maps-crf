@@ -1,13 +1,9 @@
 # jeu d'initiation à google maps
 ###### projet développer dans le cadre de mon bénévolat pour la croix-rouge française au pôle jeunesse de Savoie
-</br>
-</br>
-
 > inclusion sociale par le numérique, intergénérationnel
 > _
 > faire découvrir aux résidents d'un centre EPHAD l'utilisation de google maps de façon ludique et pragmatique.
 
-</br>
 </br>
 
 ### concept
@@ -32,13 +28,10 @@ une fois le jeu fini, le joueur est invité à télécharger le document récapi
 </br>
 
 - google maps developper API
-
 </br>
 </br>
 
 ### installation / utilisation
-
-</br>
 </br>
 
 ```
