@@ -1,3 +1,2 @@
-let bonjour = new Bonjour();
-bonjour.init();
-console.log('fin init');
+const map = new GMap();
+GMap.init;
