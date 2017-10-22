@@ -8,13 +8,37 @@
   <!-- styles -->
   <link rel="stylesheet" href="src/all.min.css">
   <!-- lib -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
   <div id="map"></div>
 
+  <main>
+    <form onsubmit="return false">
+      <input id="reponse" type="text" placeholder="votre réponse">
+      <button id="indice-container">
+        <i class="fa fa-question" aria-hidden="true"></i>
+        <p>besoin d'un indice</p>
+      </button>
+      <button id="valider-container">
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        <p>valider</p>
+      </button>
+    </form>
+    <div id="pop-up">
+      <div class="pop-up-container">
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <div id="indice"></div>
+        <p class="ok">Ok, j'ai compris</p>
+      </div>
+    </div>
+  </main>
 
- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkFXDXnLIevqX1EPVIqiNORwjozdZbm-c&callback=map.init"
+
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkFXDXnLIevqX1EPVIqiNORwjozdZbm-c&callback=website"
       async defer></script>
 <script type"text/javascript" src="src/all.min.js"></script>
 </body>

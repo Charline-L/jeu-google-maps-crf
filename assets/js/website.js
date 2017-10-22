@@ -1,2 +1,4 @@
-const map = new GMap();
-GMap.init;
+function website() {
+  let gMap = new GMap();
+  gMap.init();
+}

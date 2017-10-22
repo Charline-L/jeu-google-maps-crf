@@ -15,10 +15,21 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
-body {
-  background-color: grey; }
-
 #map {
   width: 100vw;
-  height: 100vh;
+  height: 80vh;
   z-index: 0; }
+
+#pop-up {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none; }
+  #pop-up .pop-up-container {
+    color: black;
+    text-align: center; }
+  #pop-up.opened {
+    display: block; }
