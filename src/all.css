@@ -135,7 +135,7 @@ h1 {
   padding: 0 50px; }
   .p-quiz #quiz #indice img {
     max-height: 50px;
-    max-width: 50px;
+    max-width: 100px;
     object-position: center;
     object-fit: contain;
     margin: 0 10px; }
