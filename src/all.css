@@ -102,20 +102,20 @@ h1 {
   background-color: white;
   z-index: 9; }
 
-/* ACCUEIL */
-.p-index #intro-texte, .p-index footer {
+/* ACCUEIL ET FIN */
+.p-index #intro-texte, .p-index footer, .p-fin #intro-texte, .p-fin footer {
   text-align: left;
   padding: 50px;
   width: 30vw; }
 
-.p-index #intro-texte {
+.p-index #intro-texte, .p-fin #intro-texte {
   position: absolute;
   left: 0;
   z-index: 9;
   top: 50%;
   transform: translateY(-50%); }
 
-.p-index .intro-img #icone {
+.p-index .intro-img #icone, .p-fin .intro-img #icone {
   z-index: 999;
   position: absolute;
   width: 25%;
@@ -123,13 +123,13 @@ h1 {
   left: 0;
   height: 100%;
   background-color: #D02F28; }
-  .p-index .intro-img #icone.active {
+  .p-index .intro-img #icone.active, .p-fin .intro-img #icone.active {
     animation: bandeauRougeIn 0.5s ease forwards; }
 
-.p-index footer {
+.p-index footer, .p-fin footer {
   position: absolute;
   bottom: 0; }
-  .p-index footer p {
+  .p-index footer p, .p-fin footer p {
     text-align: center;
     font-size: 12px; }
 
