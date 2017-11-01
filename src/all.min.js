@@ -359,7 +359,8 @@ var GMap = function () {
     value: function watcherMap() {
       var t = this;
       if (t.result.css('display') === 'block' && t.result.css('display') === 'block') {
-        t.result.hide();
+        t.result.removeClass('active');
+        t.result.addClass('inactive');
       }
     }
   }]);

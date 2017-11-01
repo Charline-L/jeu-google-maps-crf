@@ -127,6 +127,7 @@ h1 {
     animation: bandeauRougeIn 0.5s ease forwards; }
 
 .p-index footer, .p-fin footer {
+  z-index: 9;
   position: absolute;
   bottom: 0; }
   .p-index footer p, .p-fin footer p {

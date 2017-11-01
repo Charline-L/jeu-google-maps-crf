@@ -417,7 +417,8 @@ class GMap {
   watcherMap(){
     let t = this;
     if(t.result.css('display') === 'block' && t.result.css('display') === 'block'){
-      t.result.hide();
+      t.result.removeClass('active');
+      t.result.addClass('inactive');
     }
   }
 }
