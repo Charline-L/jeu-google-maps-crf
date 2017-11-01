@@ -16,7 +16,7 @@ ul
   padding: 0
   font-family: helvetica, sans-serif
   color: $noir
-  font-size: 20px
+  font-size: 18px
   font-weight: 100
 html
   box-sizing: border-box
@@ -53,13 +53,18 @@ html
 
 
 /* GLOBAL */
-#map, #intro-img
+#map, .intro-img, #space
   width: 70vw
   height: 100vh
   z-index: 0
   position: absolute
   top: 0
   right: 0
+  &.intro-img img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: center
 h1
   font-weight: 500
   letter-spacing: -2px
@@ -70,7 +75,12 @@ h1
   font-weight: 300
   margin-bottom: 100px
   line-height: 1.5
-
+.left-c
+  height: 100vh
+  width: 30vw
+  position: absolute
+  background-color: white
+  z-index: 9
 
 /* ACCUEIL */
 .p-index
@@ -81,16 +91,10 @@ h1
   #intro-texte
     position: absolute
     left: 0
-    z-index: 1
+    z-index: 9
     top: 50%
     transform: translateY(-50%)
-  footer
-    position: absolute
-    bottom: 0
-    p
-      text-align: center
-      font-size: 12px
-  #intro-img
+  .intro-img
     #icone
       z-index: 999
       position: absolute
@@ -99,11 +103,17 @@ h1
       left: 0
       height: 100%
       background-color: $rouge
-    #bg
-      width: 100%
-      height: 100%
-      object-fit: cover
-      object-position: center
+      &.active
+        // display: none
+        animation: bandeauRougeIn 0.5s ease forwards
+  footer
+    position: absolute
+    bottom: 0
+    p
+      text-align: center
+      font-size: 12px
+
+
 
 
 /* QUIZ */
@@ -115,6 +125,7 @@ h1
     left: 0
     transform: translateY(-50%)
     padding: 0 50px
+    z-index: 9
     #indice
       img
         max-height: 50px
@@ -166,13 +177,34 @@ h1
     #next
       margin-bottom: 0
       cursor: pointer
+      display: inline-block
       display: none
+      padding: 5px 20px
+      border-left: solid 2px $rouge
+      margin: 20px 0
+      color: white
+      transition: all 0.25s ease
+      position: relative
+      font-weight: 500
+      letter-spacing: 1px
+      &:before
+        z-index: -1
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: auto
+        width: 100%
+        background-color: $rouge
+      &:hover
+        padding: 5px 30px
   #result
-    display: none
+    display: block
     position: absolute
     top: 0
-    z-index: 999
-    left: 30vw
+    z-index: 2
+    left: 0
     height: 100%
     width: calc((25 * 70vw)/100)
     background-color: $rouge
@@ -180,3 +212,34 @@ h1
       width: 100%
       height: 100%
       background-color: $rouge
+    &.active
+      animation: bandeauResultIn 0.5s ease forwards
+    &.inactive
+      animation: bandeauResultOut 0.5s ease forwards
+  #img-fin
+    display: none
+  &.fin
+    #img-fin
+      display: block
+    #map
+      display: none
+
+
+/* ANIMATION */
+@keyframes bandeauRougeIn
+  0%
+    left: -25%
+  100%
+    left: 0
+
+@keyframes bandeauResultIn
+  0%
+    left: 0
+  100%
+    left: 30vw
+
+@keyframes bandeauResultOut
+  0%
+    left: 30vw
+  100%
+    left: 0

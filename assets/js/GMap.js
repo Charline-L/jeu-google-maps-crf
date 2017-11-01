@@ -2,8 +2,8 @@ class GMap {
 
   constructor(){
     const t = this;
+    t.map = $('#map');
     t.mapContainer = $('#map')[0];
-    t.counter= 6;
     t.villes = [
       {
         numero: 1,
@@ -56,7 +56,7 @@ class GMap {
       },
       {
         numero: 6,
-        reponses: ['coeur'],
+        reponses: ['coeur', 'de coeur', 'forme de coeur'],
         latitude: 41.3036712,
         longitude: -81.9013321,
         zoom: 17,
@@ -66,36 +66,61 @@ class GMap {
       },
       {
         numero: 7,
-        reponses: ['la Tour Eiffel', 'Tour Eiffel', 'tour eiffel'],
+        reponses: ['la Tour Eiffel', 'Tour Eiffel', 'tour eiffel', 'la tour eiffel'],
         latitude: 48.8567099,
         longitude: 2.2965268,
         zoom: 17,
         type: 'satellite',
         titre: 'Quel est ce monument ?',
         indice: '<p>Vous avez découvert la carte satellite, voici maintenant un autre type de carte : le Street View. Il permet de se déplacer dans une carte comme si l\'on y était. Devant vous se retrouve un groupe de touristes, rapprochez-vous d\'eux et découvrez ce qu\'ils prennent en photo.</p>'
+      },
+      {
+        numero: 8,
+        reponses: ['machu picchu', 'le machu picchu'],
+        latitude: -13.1630268,
+        longitude: -72.5447604,
+        zoom: 22,
+        type: 'roadmap',
+        titre: 'Où êtes vous ?',
+        indice: '<p>Vous avez vu le déplacement dans une carte street view maintenant vous allez devoir y accéder. Pour cela attraper le petit bonhomme jaune en bas à droite de la carte <img src="img/bonhomme.png" />et déplacer le sur le pointer. </br>Déplacez-vous, profitez de la vue et devinez dans quel lieu magique êtes vous.</p>'
+      },
+      {
+        numero: 9,
+        reponses: ['la lune', 'lune', 'mercure', 'vénus', 'terre', 'la terre', 'station spatiale internationale', 'mars', 'cérès', 'io', 'europe', 'ganymède', 'mimas', 'encelade', 'dioné', 'rhéa', 'titan', 'japet', 'pluton'],
+        latitude: 11.1191244,
+        longitude: 8.5828951,
+        zoom: 1,
+        type: 'satellite',
+        titre: 'Quelle est votre planète préférée ?',
+        indice: '<p>Maintenant que vous êtes un professionnel de Google Maps, vous allez pouvoir voyager encore plus loin ! Pour cela cliquez sur la photo de l\'astronaut, un nouvel on glet va s\'ouvrir, allez sur ce dernier, passez la carte en satellite, et dézoomer au maximum. Un menu sur la gauche de votre écran va apparaître et vous pourrez visitez de nouvelles planètes en 3D ! </br>N\'oubliez pas de revenir sur cet onglet pour nous donner votre réponse.</p>'
       }
     ]
     t.valider= $('form button#valider-container');
+    t.input= $('form input');
     t.popUp= $('#pop-up');
     t.indiceHTML= $('#indice');
     t.titre = $('#titreQuest');
     t.result = $('#result');
     t.next = $('#next');
     t.reponseContainer= $('#reponse');
+    if (sessionStorage.getItem('count') === null) {
+      sessionStorage.setItem('count', 0);
+    }
   }
 
   init(){
     const t = this;
     t.next.on('click',t.nextQuestion.bind(t));
-    t.newMap(t.counter);
+    t.newMap(sessionStorage.getItem('count'));
     t.valider.on('click', t.validerClick.bind(t));
+    t.map.on('click', t.watcherMap.bind(t));
   }
 
   newMap(numero){
     // récupère les variables
     const t = this;
-    let centreLat;
-    let centreLong;
+    let centreLat= t.villes[numero].latitude;
+    let centreLong= t.villes[numero].longitude;
     let zoomControl = true;
     let scaleControl = true;
     let streetViewControl = true;
@@ -105,6 +130,7 @@ class GMap {
     let optionsMap = [];
     t.titre.text(t.villes[numero].titre);
     t.indiceHTML.html(t.villes[numero].indice);
+    t.input.removeAttr('disabled');
     // personnalise la carte en fonction des villes
     switch (t.villes[numero].numero) {
       case 1:
@@ -115,7 +141,6 @@ class GMap {
         streetViewControl = false;
         rotateControl= false;
         fullscreenControl = false;
-        mapTypeControl = false;
         optionsMap = [
           {
             "featureType": "administrative",
@@ -146,14 +171,11 @@ class GMap {
         ];
         break;
       case 2:
-        centreLat= t.villes[numero].latitude;
-        centreLong = t.villes[numero].longitude;
         zoomControl = false;
         scaleControl = false;
         streetViewControl = false;
         rotateControl= false;
         fullscreenControl = false;
-        mapTypeControl = false;
         optionsMap = [
           {
             "featureType": "administrative",
@@ -184,14 +206,10 @@ class GMap {
         ];
         break;
       case 3:
-        centreLat= t.villes[numero].latitude;
-        centreLong = t.villes[numero].longitude;
-        zoomControl = true;
         scaleControl = false;
         streetViewControl = false;
         rotateControl= false;
         fullscreenControl = false;
-        mapTypeControl = false;
         optionsMap = [
           {
             "featureType": "administrative",
@@ -222,14 +240,10 @@ class GMap {
         ];
         break;
       case 4:
-        centreLat= t.villes[numero].latitude;
-        centreLong = t.villes[numero].longitude;
-        zoomControl = true;
         scaleControl = false;
         streetViewControl = false;
         rotateControl= false;
         fullscreenControl = false;
-        mapTypeControl = false;
         optionsMap = [
           {
             "featureType": "administrative",
@@ -260,14 +274,12 @@ class GMap {
         ];
         break;
       case 5:
-        centreLat= 48.859741;
-        centreLong = 2.334076;
-        zoomControl = true;
+        centreLat= 51.5285578;
+        centreLong = -0.2420221;
         scaleControl = false;
         streetViewControl = false;
         rotateControl= false;
         fullscreenControl = false;
-        mapTypeControl = false;
         optionsMap = [
           {
             "featureType": "poi",
@@ -292,11 +304,6 @@ class GMap {
       case 6:
         centreLat= 41.289476;
         centreLong = -81.901704;
-        zoomControl = true;
-        scaleControl = true;
-        streetViewControl = true;
-        rotateControl= true;
-        fullscreenControl = false;
         mapTypeControl = true;
         optionsMap = [
           {
@@ -311,13 +318,6 @@ class GMap {
         ];
         break;
       case 7:
-        centreLat= 41.289476;
-        centreLong = -81.901704;
-        zoomControl = true;
-        scaleControl = true;
-        streetViewControl = true;
-        rotateControl= true;
-        fullscreenControl = false;
         mapTypeControl = true;
         var panorama = new google.maps.StreetViewPanorama(
           document.getElementById('map'), {
@@ -327,10 +327,39 @@ class GMap {
           }
         );
         break;
+      case 8:
+        mapTypeControl = true;
+        optionsMap = [
+          {
+            "featureType": "poi",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          }
+        ];
+        break;
+      case 9:
+        $('body').addClass('fin');
+        t.next.html('fin du quizz');
+        t.next.off('click');
+        t.next.on('click', function(){
+          document.location.href = "fin-jeu.html";
+        });
+        break;
       default:
-        centreLat= t.villes[numero].latitude;
-        centreLong= t.villes[numero].longitude;
-        // TODO: mettre une carte par défault
+        alert('Erreur de connexion à Google Maps, merci de réactualiser votre page');
     }
     const positionMap = new google.maps.LatLng( centreLat , centreLong );
     const positionMarker = new google.maps.LatLng( t.villes[numero].latitude , t.villes[numero].longitude );
@@ -352,19 +381,19 @@ class GMap {
         position: positionMarker
     });
     marker.setMap(map);
-    console.log($('.gm-style'));
-    $('div[dir="ltr"]');
   }
 
   validerClick(){
     const t = this;
     const reponse = t.reponseContainer.val().toLowerCase();
     if (reponse.length){
-      if ($.inArray(reponse, t.villes[t.counter].reponses) >= 0){
-        t.counter++;
+      if ($.inArray(reponse, t.villes[sessionStorage.getItem('count')].reponses) >= 0){
+        sessionStorage.setItem('count', (parseInt(sessionStorage.getItem('count')) + 1));
         t.valider.hide();
-        t.next.show();
-        t.result.show();
+        t.next.css('display', 'inline-block');
+        t.result.removeClass('inactive')
+        t.result.addClass('active');
+        t.input.attr('disabled');
       }
       else {
         t.reponseContainer.effect('shake');
@@ -379,8 +408,16 @@ class GMap {
     let t = this;
     t.reponseContainer.val('');
     t.next.hide();
-    t.result.hide();
+    t.result.removeClass('active');
+    t.result.addClass('inactive');
     t.valider.show();
-    t.newMap(t.counter);
+    t.newMap(sessionStorage.getItem('count'));
+  }
+
+  watcherMap(){
+    let t = this;
+    if(t.result.css('display') === 'block' && t.result.css('display') === 'block'){
+      t.result.hide();
+    }
   }
 }
