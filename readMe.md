@@ -31,6 +31,8 @@ une fois le jeu fini, le joueur est invité à télécharger le document récapi
 </br>
 
 - google maps developper API
+- Javascript 
+- HTML CSS
 </br>
 </br>
 
