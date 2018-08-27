@@ -15,7 +15,7 @@ class GMap {
                 zoom: 6,
                 type: 'roadmap',
                 titre: 'Quelle est la ville montrée sur la carte ?',
-                indice: '<p>Il y a tout ce que vous voulez, aux champs Élysée</p>'
+                indice: '<p>Il y a tout ce que vous voulez,<br>aux Champs Élysées</p>'
             },
             {
                 numero: 2,
@@ -63,8 +63,8 @@ class GMap {
                 longitude: -81.9013321,
                 zoom: 17,
                 type: 'satellite',
-                titre: 'Quelle est la la forme du lac ?',
-                indice: '<p>Bravo vous avez réussi la première partie. Maintenant vous découvrez un autre style de carte que l\'on appele satellite comme vous pouvez le voir en haut sur ce bouton <img src="img/type.png"/>. En vous déplaçant vers le sud vous trouverez un lac original, quelle est sa forme si spéciale ?</p>'
+                titre: 'Quelle est la forme du lac ?',
+                indice: '<p>Bravo vous avez réussi la première partie. Maintenant vous découvrez un autre style de carte que l\'on appelle satellite comme vous pouvez le voir en haut sur ce bouton <img src="img/type.png"/>. En vous déplaçant vers le sud vous trouverez un lac original, quelle est sa forme si spéciale ?</p>'
             },
             {
                 numero: 7,
@@ -84,7 +84,7 @@ class GMap {
                 zoom: 22,
                 type: 'roadmap',
                 titre: 'Où êtes vous ?',
-                indice: '<p>Vous avez vu le déplacement dans une carte Street View maintenant vous allez devoir y accéder. Pour cela attraper le petit bonhomme jaune en bas à droite de la carte <img src="img/bonhomme.png" />et déplacer le sur le pointeur. </br>Déplacez-vous, profitez de la vue et devinez dans quel lieu magique vous êtes.</p>'
+                indice: '<p>Vous avez vu le déplacement dans une carte Street View maintenant vous allez devoir y accéder. Pour cela attrapez le petit bonhomme jaune en bas à droite de la carte <img src="img/bonhomme.png" />et déplacez le sur le pointeur. </br>Déplacez-vous, profitez de la vue et devinez dans quel lieu magique vous êtes.</p>'
             },
             {
                 numero: 9,
@@ -94,7 +94,7 @@ class GMap {
                 zoom: 1,
                 type: 'satellite',
                 titre: 'Quelle est votre planète préférée ?',
-                indice: '<p>Maintenant que vous êtes un professionnel de Google Maps, vous allez pouvoir voyager encore plus loin ! Pour cela cliquez sur la photo de l\'astronaute, un nouvel onglet va s\'ouvrir, allez sur ce dernier, passez la carte en satellite, et dé-zoomer au maximum. Un menu sur la gauche de votre écran va apparaître et vous pourrez visitezrde nouvelles planètes en 3D ! </br>N\'oubliez pas de revenir sur cet onglet pour nous donner votre réponse.</p>'
+                indice: '<p>Maintenant que vous êtes un professionnel de Google Maps, vous allez pouvoir voyager encore plus loin ! Pour cela cliquez sur la photo de l\'astronaute, un nouvel onglet va s\'ouvrir, allez sur ce dernier, passez la carte en satellite, et dé-zoomez au maximum. Un menu sur la gauche de votre écran va apparaître et vous pourrez visiter de nouvelles planètes en 3D ! </br>N\'oubliez pas de revenir sur cet onglet pour nous donner votre réponse.</p>'
             }
         ]
         t.valider = $('form button#valider-container');
